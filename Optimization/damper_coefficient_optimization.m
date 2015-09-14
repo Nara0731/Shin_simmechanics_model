@@ -6,7 +6,7 @@ addpath(genpath('../Images'))
 addpath(genpath('../stl'))
 
 % Set simulation parameters
-Y0 = 3;         % Initial heigh [m]
+%Y0 = 3;         % Initial heigh [m]
 K = 2500;       % Spring constant [N/m]
 c = 75;         % Damping coefficient [N/(m/s)]
 D_max = 0.074;  % Damper maximum stroke size [m]
@@ -31,8 +31,8 @@ eta0 = 1202.7;
 kap0 = 0;
 i = 0;
 
-mdl = 'robot_shin_test';
-open(mdl);
+%mdl = 'robot_shin_test';
+%open(mdl);
 
 %% ---------- Optimization ---------------
 % we want to optimize the damping force post-impact. Hence, we need to
@@ -40,10 +40,12 @@ open(mdl);
 % optimization will switch damper settings when changing from compression
 % to expansion 
 
+% Optimization parameters
+i_coeffs0 = [1 2 3 4 5 6];       % Current profile spline coefficients
+h0 = 5;                         % Drop height
+
 % Parameters to optimize
-i_comp0 = 0;
-i_exp0 = 1;
-q0 = [i_comp0, i_exp0];
+q0 = [i_coeffs0, h0];
 
 %sim_drop( shin, p0);
 

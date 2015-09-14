@@ -2,12 +2,11 @@ function [ score ] = criterion(q)
 
 
 % Query values 
+i_coeffs = q(1:6);
+Y0 = q(7);
 
-
-% Do forward dynamics
-i_comp = q(1);
-i_exp = q(2);
-sim('robot_shin_test');
+% Run Simulation 
+sim('robot_shin_test','i_coeffs',i_coeffs,'Y0',Y0);
   
 %% Cost function
 score = 0;      % Reset score

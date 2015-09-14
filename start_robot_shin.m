@@ -4,7 +4,7 @@ addpath(genpath('Images'))
 addpath(genpath('stl'))
 
 % Set simulation parameters
-Y0 = 3;         % Initial heigh [m]
+Y0 = 0.48;         % Initial heigh [m]
 K = 2500;       % Spring constant [N/m]
 C = 75;         % Damping coefficient [N/(m/s)]
 D_max = 0.074;  % Damper maximum stroke size [m]
@@ -33,8 +33,12 @@ gam0 = 1.6;
 del0 = 1297;
 eta0 = 1202.7;
 kap0 = 0;
-i = 1;
+i = 0;
+i_comp = 0;
+i_exp = 1;
+damp_satur = 5000;
 
+i_coeffs = [1, 2, 3, 4, 5, 6]; 
 mdl = 'robot_shin_test';
-open(mdl);
+%open(mdl);
 sim(mdl);
