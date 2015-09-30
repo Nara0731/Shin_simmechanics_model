@@ -14,8 +14,9 @@ global Y0;
 global mdl;
 
 % Read query values
-a0 = C(1); a1 = C(2) ; a2 = C(3); a3 = C(4) ; a4 = C(5);
-
+%a0 = C(1); a1 = C(2) ; a2 = C(3); a3 = C(4) ; a4 = C(5);
+C_exp = C(1:5);
+C_comp = C(6:10);
 % Simulate drop with query coefficients
 options = simset('SrcWorkspace','current');  % Set the simmechanics simulation workspace to be the functions workspace
 try

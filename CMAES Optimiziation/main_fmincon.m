@@ -1,6 +1,6 @@
 
-% Purpose:  CMAES optimization to find optimum damping profile 
-% Filename: maincmaes.m
+% Purpose:  FMINCON optimization to find optimum damping profile 
+% Filename: main_fmincon.m
 % Author:   Roberto Shu
 % Las edit: 14/9/2015
 %------------------- Instructions ---------------------------
@@ -29,10 +29,10 @@ addpath(fullfile(mainDir,'stl'));
     maxStroke = 0.074;
     
     K = 7500;       % Spring constant [N/m]
-    B = 75;         % Damping coefficient [N/(m/s)]
+    B = 1876;         % Damping coefficient [N/(m/s)]
     
     Y0 = 2;         % Initial height [m]
-    PE = mass*g*Y0; % Initial potential energy []
+    PE = (mass+5)*g*Y0; % Initial potential energy []
     
     simFileName = 'robot_shin_v3';
     try 
@@ -45,16 +45,11 @@ addpath(fullfile(mainDir,'stl'));
 %------------------- Optimization ---------------------------
 
 % Set options of CMA-ES optimization
-    options.LBounds = 0;  % no bounds
-    options.UBounds = Inf;  % no bounds
-    options.Restarts = 0;
-    %options.MaxFunEvals  = Inf;
-    %options.MaxIter = Inf; 
-    options.TolFun = 1e-6;
-    options.StopFitness=1e-3;
-    options.SaveVariables = 'final';
-    options.SaveFilename = 'CMAES_results5.mat';
-
+    LBounds = 0;  % no bounds
+    UBounds = Inf;  % no bounds
+    SaveFilename = 'fmincon_results2.mat';
+    options = optimset('Display','iter','TolX',1e-15,'DiffMinChange',10);
+    
 % Set initial conditions
     X0 = B;
     InSigma = 10;
@@ -62,10 +57,11 @@ addpath(fullfile(mainDir,'stl'));
     
 % Perform optimization
     fprintf('Performing optimization...\n');
-    fprintf('   Algorithm: CMA-ES\n');
+    fprintf('   Algorithm: FMINCON\n');
     tic;
-    [results.optDamping, results.fval, counteval, stopflag, out, bestever] = cmaes(criterionFileName,X0,InSigma,options);
+    [results.optDamping, results.fval, results.stopflag, results.output] = fmincon(criterionFileName,X0,[],[],[],[],LBounds,UBounds,[],options);
     results.optimizationTime = toc;
     fprintf('done\n');
     
-    
+% Save results
+save(SaveFilename, 'results');

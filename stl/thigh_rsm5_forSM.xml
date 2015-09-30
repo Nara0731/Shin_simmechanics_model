@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<SimMechanicsImportXML version="1.0" xmlns="urn:mathworks:simmechanics:import" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Created by="" on="09/27/15||19:36:32" using="SimMechanics Link Version 4.6" from="SolidWorks 23.3.0"/>
+<ModelUnits mass="kilogram" length="inch"/>
+<DataUnits mass="kilogram" length="meter"/>
+<RootAssembly name="thigh_rsm5_forSM" uid="thigh_rsm5_forSM" version="103">
+<AssemblyFile name="thigh_rsm5_forSM.SLDASM" type="SolidWorks Assembly"/>
+<InstanceTree>
+<Instance name="thigh_left_rsm_5_forSM-1" uid="thigh_left_rsm_5_forSM-1" grounded="true" entityUid="thigh_left_rsm_5_forSM*:*Default">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0.46461369552908327 0.3313357239718252 0.37572802229148533</Translation>
+</Transform>
+</Instance>
+</InstanceTree>
+<Constraints>
+</Constraints>
+</RootAssembly>
+<Assemblies>
+</Assemblies>
+<Parts>
+<Part name="thigh_left_rsm_5_forSM" uid="thigh_left_rsm_5_forSM*:*Default" version="894">
+<ModelUnits mass="kilogram" length="inch"/>
+<PartFile name="thigh_left_rsm_5_forSM.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>11.605951231516547</Mass>
+<CenterOfMass>-0.39948102885212622 0.0054173154473062569 0.036331790258029295</CenterOfMass>
+<Inertia>0.03150360835793057 0.34541865096569924 0.35261687952961446 -8.3095908906285918e-005 -0.00080781733406299131 -0.0093472384217939634</Inertia>
+</MassProperties>
+<GeometryFile name="thigh_left_rsm_5_forSM_Default_sldprt.STL" type="STL"/>
+<VisualProperties>
+<Ambient r="0.89803921568627454" g="0.91764705882352937" b="0.92941176470588238" a="1"/>
+<Diffuse r="0.89803921568627454" g="0.91764705882352937" b="0.92941176470588238" a="1"/>
+<Specular r="0.44901960784313727" g="0.45882352941176469" b="0.46470588235294119" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+</Parts>
+</SimMechanicsImportXML>
