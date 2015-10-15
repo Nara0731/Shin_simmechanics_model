@@ -14,9 +14,11 @@ Bg = 100;    % Ground damping coefficient [N-s/m]
 
 mass = 15; 
 maxStroke = 0.074;
+maxTauK = inf; % Max knee torque [N/m]
 
 K = 7500;       % Spring constant [N/m]
 B = 1881.7;         % Damping coefficient [N/(m/s)]
+%B = 0;
 
 phiH0 = -85*pi/180;    % Initial hip angle [rad]
 phiK0 = 60*pi/180;    % Initial knee angle [rad]
@@ -25,5 +27,5 @@ ddphiK0 = 0;    % Initial knee angle [rad]
 Y0 = 3;         % Initial height [m]
 
 % Knee PD controller
-Kp = 100;
-Kd = 10;
+Kp = 500;
+Kd = 50;
